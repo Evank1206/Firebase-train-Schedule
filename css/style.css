@@ -13,7 +13,7 @@ main{
 
 .container1{
     margin-top: 10px;
-    height: 20vh;
+    min-height: 20vh;
     background-color: rgb(175, 115, 115);
     border: solid black;
     text-align: center;
@@ -30,8 +30,9 @@ main{
 .container2{
     margin-top: 10px;
     background-color: lightblue;
-    height: 33vh;
+    min-height: 33vh;
     border: solid black;
+    /* display: table; */
 }
 .container2 header, .container3 header {
     background-color:green;
@@ -39,15 +40,32 @@ main{
     font-size:26px;
 
 }
+.container2 ul{
+    display: table;
+
+}
+.container2 ul li{
+    text-decoration: none;
+    display: table-cell;
+    vertical-align:middle;
+    padding-left: 26px;
+    
+}
     
 .container3{
     margin-top: 10px;
     border: solid black;
     background-color: lightblue;
-    height: 33vh;
+    min-height: 33vh;
     
 }
 
 #frequency-Min, #destination, #time, #trainName, #submitBtn{
     margin:10px;
+}
+
+/* js style */
+#currentTime{
+    font-size: 30px;
+    color: white;
 }

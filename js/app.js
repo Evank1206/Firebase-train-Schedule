@@ -11,8 +11,41 @@
   /* // Initialize Firebase */
   firebase.initializeApp(firebaseConfig);
 
-var randomFormat = "MM/DD/YYYY";
-var convertedDate = moment(randomFormat);
+  var database = firebase.database();
 
-console.log(convertedDate.format("MM/DD/YYYY"));
-console.log(convertedDate.format("hh:mm:ss"));
+  $("#submitBtn").on('click', function(event){
+      event.preventDefault();
+
+      var trainName = $("#trainName").val().trim();
+      var destination = $("#destination").val().trim();
+      var frequencyMin = $("#frequency-Min").val().trim();
+      var arrival = $("#time").val().trim();
+      console.log(trainName);
+     
+
+  });
+
+
+
+
+
+// var randomFormat = "MM/DD/YYYY";
+// var convertedDate = moment(randomFormat);
+
+// console.log(convertedDate.format("MM/DD/YYYY"));
+// console.log(convertedDate.format("hh:mm:ss"));
+
+var tFrequency = 10;
+
+var firstTime = "06:00";
+
+var timeSet = moment(firstTime, "HH:mm").subtract(1, "hour");
+
+// console.log(timeSet);
+
+var currentTime = moment();
+// console.log('current time' + moment(currentTime).format('hh:mm') );
+$('#currentTime').append( moment(currentTime).format('hh:mm'));
+
+
+
