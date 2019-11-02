@@ -7,34 +7,50 @@
 
     <link rel="stylesheet" href="css/style.css">
 
-    <link href="https://fonts.googleapis.com/css?family=Cute+Font|Happy+Monkey|Permanent+Marker|Roboto|Rouge+Script|Turret+Road|Vibes|Waiting+for+the+Sunrise&display=swap" rel="stylesheet">
-    <title>GifTastic</title>
+    <!-- <link href="https://fonts.googleapis.com/css?family=Cute+Font|Happy+Monkey|Permanent+Marker|Roboto|Rouge+Script|Turret+Road|Vibes|Waiting+for+the+Sunrise&display=swap" rel="stylesheet"> -->
+    <title>Firebase Time</title>
 </head>
 <body>
-    <div class="main">
+    <main>
+        <div class="container1">
+            <h1>TRAIN SCHEDULE</h1>
+        </div>
+        <div class="container2">
+            <header>Current Train</header>
 
-        <div class="container">
-            <h1>Search Giphy</h1>
+        </div>
+        <div class="container3">
+            <header>Add Train</header>
+            <p>Train name:</p>
+            <input type="text" id="trainName">
+         
+            <p>Destination:</p>
+            
+            <input type="text" id="destination">
+            
+            <p>First Train Time (HH:MM -military time):</p>
+            
+            <input type="text" id="time">
+            
+            <p>Frequency(min):</p>
+            
+            <input type="text" id="frequency-Min">
+            <br>
+            <button id="submitBtn">Submit</button>
+
+
         </div>
 
-        
-        <form id="giphy-form">
-                <input type="text" id="giphy-Input" placeholder="Type some fun animal here">
-                <!-- button triggers to NEW GIPHY ADD -->
-                <input id="add-Giphy" type="submit" value="Search GIF">
-        </form>
+    </main>
 
-        <!-- rendered button dumped here -->
-        <div id="button-View"></div>
 
-        <!-- movie will get dumped here -->
-        <div id="giphy-View"></div>
-
-    </div>
-
-    <script src="https://code.jquery.com/jquery-3.4.1.js" 
-            integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-            crossorigin="anonymous"></script>
+    <!-- firebase SDN -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-database.js"></script>
+    <!-- Jquery -->
+        <script src="https://code.jquery.com/jquery-3.4.1.js" 
+                integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+                crossorigin="anonymous"></script>
 
     <script src="js/app.js"></script>
 </body>

@@ -1,33 +1,53 @@
 *{
     margin: 0px;
 }
-.main{
-    margin: 70px auto;
-    height: 80vh;
-    width: 80%;
-    background-image: url(../img/morocco-blue.png);
+body{
+    background-color: grey;
+}
+main{
+    height: 100vh;
+    width: 50%;
+    margin: 0 auto;
+    /* background-color: aqua; */
 }
 
-
-.container, form, button{
-    margin: 10px;
-}
-
-.container h1{
+.container1{
+    margin-top: 10px;
+    height: 20vh;
+    background-color: rgb(175, 115, 115);
+    border: solid black;
     text-align: center;
-    font-family: 'Permanent Marker', cursive;
-    font-size: 69px;
-    color: gold;
+
 }
-#giphy-form{
-    text-align: center;
-    /* font-size: 60px; */
+.container1 h1{
+    color: white;
+    position: relative;
+    top: 60px;
+
 }
 
-#giphy-Input, #add-Giphy{
-    font-size: 20px;
+
+.container2{
+    margin-top: 10px;
+    background-color: lightblue;
+    height: 33vh;
+    border: solid black;
 }
-#button-View{
-    text-align: center;
-    border:solid black;
+.container2 header, .container3 header {
+    background-color:green;
+    color: white;
+    font-size:26px;
+
+}
+    
+.container3{
+    margin-top: 10px;
+    border: solid black;
+    background-color: lightblue;
+    height: 33vh;
+    
+}
+
+#frequency-Min, #destination, #time, #trainName, #submitBtn{
+    margin:10px;
 }

@@ -1,91 +1,18 @@
-$(document).ready(function(){
+  /* // Your web app's Firebase configuration */
+  var firebaseConfig = {
+    apiKey: "AIzaSyAO4KKOOPc7rmJGlDYIYotpmkmKAsn6_ho",
+    authDomain: "fir-assignment-007.firebaseapp.com",
+    databaseURL: "https://fir-assignment-007.firebaseio.com",
+    projectId: "fir-assignment-007",
+    storageBucket: "fir-assignment-007.appspot.com",
+    messagingSenderId: "518864508765",
+    appId: "1:518864508765:web:0627c2a6ab6f120fa37ab4"
+  };
+  /* // Initialize Firebase */
+  firebase.initializeApp(firebaseConfig);
 
-var giphies = ['Mr. Joker', 'Mr.Bean', 'Mr.Sponge Bob'];
-    // console.log(giphies);
+var randomFormat = "MM/DD/YYYY";
+var convertedDate = moment(randomFormat);
 
-
-    function renderButtons(){
-
-        $('#button-View').empty();
-        for(var i = 0; i < giphies.length; i++){
-                
-            $('#button-View').append('<button class="btn">' + giphies[i] + '</button>');
-        //  console.log(giphies[i]);  
-
-        };
-    
-    };
-    renderButtons();
-        
-
-        // This function handles events where one button is clicked
-
-    $('#add-Giphy').on('click', function(event){
-        event.preventDefault();
-
-    var giphy = $('#giphy-Input').val();
-
-    $('#button-View').append('<button class="btn">' + giphy + '</button>');
-        // console.log(giphy);
-
-
-    });
-
-    renderButtons();
-
-    // $('.btn').on('click', function(){
-    
-    //     // console.log("i'm mr coffee'");
-
-    //     console.log( $(this).text() );
-        
-    // });
-
-    $(document).on('click', '.btn', function(){
-    // console.log( $(this).text() );
-
-    var btnName = $(this).text();
-
-
-    const api_key = 'QZDK12gEoyQSqJjGcUf0zhRnzG6Mqgaw';
-
-    const queryURL = "http://api.giphy.com/v1/gifs/search?q=" + btnName + "&api_key="+ api_key +"&limit=20";
-
-    $.ajax({
-        type: 'GET',
-        url: queryURL
-    }).then(function(response){
-
-        console.log(response);
-
-        // console.log(response.data[0].rating);
-
-        // console.log(response.data[0].title);
-
-        // var rating = response.data[0].rating
-        // var images = response.data[0].images.fixed_height
-        var url = response.data[0].images.fixed_height.url
-
-        console.log(response.data[0].images.fixed_height.url);
-        // $(this).html(response.data[0].images.fixed_height.url);
-        // $('#giphy-View').append(url); 
-
-        var imgUrl = $('<img>');
-        imgUrl.attr('src', url);
-        imgUrl.attr('alt', 'giphies image');
-        $('#giphy-View').append(imgUrl);
-
-
-    });
-
-});
-
-});
-
-
-// жишээ яаж 
-
-// $(document).on('click', '.btn', function(){
-//     console.log( $(this) );
-
-// });
+console.log(convertedDate.format("MM/DD/YYYY"));
+console.log(convertedDate.format("hh:mm:ss"));
