@@ -20,7 +20,23 @@
       var destination = $("#destination").val().trim();
       var frequencyMin = $("#frequency-Min").val().trim();
       var arrival = $("#time").val().trim();
-      console.log(trainName);
+
+      // console.log(trainName);
+
+     database.ref("triansT").push({
+       name: trainName,
+       destination: destination,
+       frequencyMin: frequencyMin,
+       arrival: arrival
+
+     });
+
+     database.ref("triansT").on("child_added", function(snap){
+       console.log(snap.val());
+       $('#trainName').append( snap.val());
+
+     });
+
      
 
   });

@@ -6,7 +6,7 @@ body{
 }
 main{
     height: 100vh;
-    width: 50%;
+    width: 80%;
     margin: 0 auto;
     /* background-color: aqua; */
 }
@@ -32,7 +32,6 @@ main{
     background-color: lightblue;
     min-height: 33vh;
     border: solid black;
-    /* display: table; */
 }
 .container2 header, .container3 header {
     background-color:green;
