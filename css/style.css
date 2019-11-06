@@ -13,7 +13,7 @@ main{
 
 .container1{
     margin-top: 10px;
-    min-height: 20vh;
+    min-height: 15vh;
     background-color: rgb(175, 115, 115);
     border: solid black;
     text-align: center;
@@ -22,7 +22,7 @@ main{
 .container1 h1{
     color: white;
     position: relative;
-    top: 60px;
+    top: 45px;
 
 }
 
@@ -55,8 +55,10 @@ main{
     margin-top: 10px;
     border: solid black;
     background-color: lightblue;
-    min-height: 33vh;
-    
+    min-height: 33vh; 
+}
+.container3, header{
+    text-align: center;
 }
 
 #frequency-Min, #destination, #time, #trainName, #submitBtn{
@@ -66,5 +68,25 @@ main{
 /* js style */
 #currentTime{
     font-size: 30px;
+    color: white;
+}
+#th-head, thead{
+    background-color: green;
+    width: 100%;
+    color: white;
+}
+#text-holder{
+    color: black;
+    background-color:lightblue;
+
+}
+#trainName, #destination, #time, #frequency-Min{
+    width: 50%;
+    height: 20px;
+}
+#submitBtn{
+    font-size: 32px;
+    width:25%;
+    background-color: teal;
     color: white;
 }
