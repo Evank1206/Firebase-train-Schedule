@@ -74,6 +74,12 @@ main{
     background-color: green;
     width: 100%;
     color: white;
+
+}
+.container2 tbody tr td{
+    background-color: grey;;
+    text-align: center;
+    color: black;
 }
 #text-holder{
     color: black;
