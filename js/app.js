@@ -13,6 +13,11 @@ $(document).ready(function () {
       firebase.initializeApp(firebaseConfig);
       var database = firebase.database();
       var currentTime = moment();
+      //   current display time for show
+      let timeN = new Date();
+      console.log(timeN)
+      $("#currentT").append(timeN);
+
       // calling the function
       $("#submitBtn").on('click', function (event) {
           event.preventDefault();

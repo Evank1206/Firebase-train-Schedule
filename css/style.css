@@ -25,6 +25,11 @@ main{
     top: 45px;
 
 }
+#currentT{
+    color:black;
+    position: relative;
+    top: 50px;
+}
 
 
 .container2{
