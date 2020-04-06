@@ -1,101 +1,80 @@
-/* // Your web app's Firebase configuration */
+/* jQuery starts here */
 $(document).ready(function () {
-      var firebaseConfig = {
-          apiKey: "AIzaSyAO4KKOOPc7rmJGlDYIYotpmkmKAsn6_ho",
-          authDomain: "fir-assignment-007.firebaseapp.com",
-          databaseURL: "https://fir-assignment-007.firebaseio.com",
-          projectId: "fir-assignment-007",
-          storageBucket: "fir-assignment-007.appspot.com",
-          messagingSenderId: "518864508765",
-          appId: "1:518864508765:web:0627c2a6ab6f120fa37ab4"
-      };
-      /* // Initialize Firebase */
-      firebase.initializeApp(firebaseConfig);
-      var database = firebase.database();
-      var currentTime = moment();
-      //   current display time for show
-      let timeN = new Date();
-      console.log(timeN)
-      $("#currentT").append(timeN);
+    /* Web app's Firebase configuration */
+    var firebaseConfig = {
+        apiKey: "AIzaSyAO4KKOOPc7rmJGlDYIYotpmkmKAsn6_ho",
+        authDomain: "fir-assignment-007.firebaseapp.com",
+        databaseURL: "https://fir-assignment-007.firebaseio.com",
+        projectId: "fir-assignment-007",
+        storageBucket: "fir-assignment-007.appspot.com",
+        messagingSenderId: "518864508765",
+        appId: "1:518864508765:web:0627c2a6ab6f120fa37ab4"
+    };
+    /* Initialize Firebase */
+    firebase.initializeApp(firebaseConfig);
+    var database = firebase.database();
 
-      // calling the function
-      $("#submitBtn").on('click', function (event) {
-          event.preventDefault();
-          // set user input values to variables   өөрөөр хэлвэл бичсэн мэдээллийг console.log д гаргана
-          var name = $("#trainName").val().trim();
-          var dest = $("#destination").val().trim();
-          // console.log(name, dest);
-          // coniverts user input to usable info */ display болхгүйч анхны галт тэрэг явж эхлсэн мэдээллийг ажигилах
-          var firstTrainTime = $('#firstTrain').val().trim();
-          // 06:00 am
-          var frequency = $('#frequency-Min').val().trim();
-          // current time.. одоогийн цаг
-          // console.log(currentTime);
-          // console.log('curretent time ' + moment(currentTime).format('hh:mm'));
-          console.log(name);
-          console.log(dest);
-          console.log(firstTrainTime);
-          console.log(frequency);
-          // add new trains info
-          var newTrain = {
-              train: name,
-              trainGoingTo: dest,
-              trainComing: firstTrainTime,
-              everyMinORHour: frequency
-          };
-          console.log(newTrain);
-          // and push it to firebase database
-          database.ref().push(newTrain);
-      });
-      // last added element to firebase database
-      // сүүлд нэмэгдсэн өгөгдлийг агуулхад хадгалах ба console log р харуулна
-      database.ref().on('child_added', function (childSnapshot) {
-          // console.log(childSnapshot.val());
-          // storing in variables
-          var name = childSnapshot.val().train;
-          var dest = childSnapshot.val().trainGoingTo;
-          var firstTrainTime = childSnapshot.val().trainComing;
-          var frequency = childSnapshot.val().everyMinORHour;
-          console.log(name);
-          console.log(dest);
-          console.log(firstTrainTime);
-          console.log(frequency);
-          var test = moment(firstTrainTime, "HH:mm");
-          console.log(test);
-          // frist train time
-          var trainTime = firstTrainTime;
-          console.log(trainTime);
-          // calculate difference between time
-          var defference = moment().diff(test, 'minutes');
-          console.log(defference)
-          // time remaining
-          // var frequency = [''];
-          //defference needs to be an integer value; frequency needs to be an integer value
-          // calculate time left
-          var timeRemain = Math.abs(defference % frequency);
-          //12%5 = 2
-          console.log(timeRemain);
-          var minUntil = frequency - timeRemain;
-          // next arrival time
-          var nextArrival = moment(currentTime).add(minUntil, 'minutes').format('hh:mm');
-          // console.log(nextArrival);
-          $('#th-head > tbody').append('<tr><td>' + name + '</td><td>' + dest + '</td><td>' + frequency + '</td><td>' + nextArrival + '</td><td>' + minUntil + '</td></tr>');
-          // $('#th-head > tbody').append('<h1>' + name + '</h1>');
-      });
-   });
+    var currentTime = moment();
+
+    /* submit function starts here */
+    $("#submitBtn").on('click', function (event) {
+        event.preventDefault();
+        // set user input values to variables && grabing the value from user input
+        var name = $("#trainName").val().trim();
+        var dest = $("#destination").val().trim();
+        var firstTrain = $('#firstTrain').val().trim();
+        var frequency = $('#frequency-Min').val().trim();
+
+        // creating new object  
+        var newTrain = {
+            train: name,
+            trainGoingTo: dest,
+            trainStartGoing: firstTrain,
+            everyMinORHour: frequency
+        };
+        // conditional statement for if user trainName && destination didn't filled out alert to screen if did push value to database
+        if (!name || !dest) {
+            alert("fill the form")
+        } else {
+            // push it to firebase database
+            database.ref().push(newTrain);
+        }
+
+    });   /* submit function ends here */
+
+    // last added element to firebase database = /* DOM to html using 'childSnapShot' */
+    // сүүлд нэмэгдсэн өгөгдлийг агуулхад хадгалах 
+    database.ref().on('child_added', function (childSnapshot) {
+
+        // storing in variables /* IF CONSOLE.LOG BELOW VAR : CAN SEE ALL PUSHED DATA FROM FIREBASE */
+        var name = childSnapshot.val().train;
+        var dest = childSnapshot.val().trainGoingTo;
+        var firstTrain = childSnapshot.val().trainStartGoing;
+        var frequency = childSnapshot.val().everyMinORHour;
+
+        var test = moment(firstTrain, "hh:mm");
+
+        // calculate difference between time
+        var defference = moment().diff(test, 'minutes');
+        // console.log(defference)
+        // time remaining
+        //defference needs to be an integer value; frequency needs to be an integer value
+        // calculate time left
+        var timeRemain = Math.abs(defference % frequency);
+        //12%5 = 2
+        // console.log(timeRemain);
+        var minUntil = frequency - timeRemain;
+        // next arrival time
+        var nextArrival = moment(currentTime).add(minUntil, 'minutes').format('hh:mm');
+        // console.log(nextArrival);
+        $('#th-head > tbody').append('<tr><td>' + name + '</td><td>' + dest + '</td><td>' + frequency + '</td><td>' + nextArrival + '</td><td>' + minUntil + '</td></tr>');
+        // $('#th-head > tbody').append('<h1>' + name + '</h1>');
+    });
+
+}); /* jQuery ends here */
+
    // var tFrequency = [];
    // var firstTime = [];
    // var timeSet = moment(firstTime, "HH:mm");
    // var currentTime = moment();
    // $('#currentTime').append( moment(currentTime).format('hh:mm'));
-   // });
-   // __.append(
-   // `<tr>
-   //     <td>${first}</td>
-   //     <td>SEC</td>
-   //     <td>frec</td>
-   
-   //     <td>00:00</td>
-   //     <td>min away</td>
-   // </tr>`
-   // );
