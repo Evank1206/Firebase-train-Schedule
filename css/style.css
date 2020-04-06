@@ -2,7 +2,7 @@
     margin: 0px;
 }
 body{
-    background-color: grey;
+    background-color: orange;
 }
 main{
     height: 100vh;
@@ -10,6 +10,7 @@ main{
     margin: 0 auto;
     /* background-color: aqua; */
 }
+
 
 .container1{
     margin-top: 10px;
