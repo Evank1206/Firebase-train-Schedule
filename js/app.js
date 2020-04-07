@@ -44,7 +44,7 @@ $(document).ready(function () {
 
     }); /* submit function ends here */
 
-    // last added element to firebase database = /* DOM to html using 'childSnapShot' */
+    // last added element to firebase database = /* Pulling the data from database 'childSnapShot' */
     // сүүлд нэмэгдсэн өгөгдлийг агуулхад хадгалах 
     database.ref().on('child_added', function (childSnapshot) {
 
@@ -70,6 +70,7 @@ $(document).ready(function () {
         // next arrival time
         var nextArrival = moment(currentTime).add(frequency, 'minutes').format('hh:mm');
         console.log(nextArrival);
+        // DOM ing
         $('#th-head > tbody').append('<tr><td>' + name + '</td><td>' + dest + '</td><td>' + frequency + '</td><td>' + nextArrival + '</td><td>' + minutesAway + '</td></tr>');
     
     });
