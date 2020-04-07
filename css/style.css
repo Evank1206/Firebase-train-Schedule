@@ -1,8 +1,8 @@
 *{
-    margin: 0px;
+    margin: 0 auto;
 }
 body{
-    background-color: grey;
+    background-color: lightgrey;
 }
 main{
     height: 100vh;
@@ -25,7 +25,6 @@ main{
     top: 45px;
 
 }
-
 
 .container2{
     margin-top: 10px;
@@ -72,7 +71,7 @@ main{
 }
 #th-head, thead{
     background-color: green;
-    width: 100%;
+    min-width: 100%;
     color: white;
 
 }
@@ -92,7 +91,7 @@ main{
 }
 #submitBtn{
     font-size: 32px;
-    width:25%;
+    min-width: 25%;
     background-color: teal;
     color: white;
 }
