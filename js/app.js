@@ -1,3 +1,5 @@
+/* current time on display */
+$('#currentTime').append( moment().format('dddd hh:mm a'));
 /* jQuery starts here */
 $(document).ready(function () {
     /* Web app's Firebase configuration */
@@ -40,7 +42,7 @@ $(document).ready(function () {
             database.ref().push(newTrain);
         }
 
-    });   /* submit function ends here */
+    }); /* submit function ends here */
 
     // last added element to firebase database = /* DOM to html using 'childSnapShot' */
     // сүүлд нэмэгдсэн өгөгдлийг агуулхад хадгалах 
@@ -56,25 +58,21 @@ $(document).ready(function () {
 
         // calculate difference between time
         var defference = moment().diff(test, 'minutes');
-        // console.log(defference)
-        // time remaining
-        //defference needs to be an integer value; frequency needs to be an integer value
-        // calculate time left
+        // console.log(defference);
+
+        // calculate time left // minutes away // 12%5 = 2
         var timeRemain = Math.abs(defference % frequency);
-        //12%5 = 2
         // console.log(timeRemain);
-        var minUntil = frequency - timeRemain;
+
+        var minutesAway = frequency - timeRemain;
+        // console.log(minutesAway);
+        
         // next arrival time
-        var nextArrival = moment(currentTime).add(minUntil, 'minutes').format('hh:mm');
-        // console.log(nextArrival);
-        $('#th-head > tbody').append('<tr><td>' + name + '</td><td>' + dest + '</td><td>' + frequency + '</td><td>' + nextArrival + '</td><td>' + minUntil + '</td></tr>');
-        // $('#th-head > tbody').append('<h1>' + name + '</h1>');
+        var nextArrival = moment(currentTime).add(frequency, 'minutes').format('hh:mm');
+        console.log(nextArrival);
+        $('#th-head > tbody').append('<tr><td>' + name + '</td><td>' + dest + '</td><td>' + frequency + '</td><td>' + nextArrival + '</td><td>' + minutesAway + '</td></tr>');
+    
     });
 
 }); /* jQuery ends here */
 
-   // var tFrequency = [];
-   // var firstTime = [];
-   // var timeSet = moment(firstTime, "HH:mm");
-   // var currentTime = moment();
-   // $('#currentTime').append( moment(currentTime).format('hh:mm'));
